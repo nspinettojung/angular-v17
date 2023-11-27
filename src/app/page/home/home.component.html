@@ -1,0 +1,77 @@
+Hello {{ city }}, {{ 1 + 1 }}
+<section><app-user name="NicoJung" /></section>
+<br>
+
+@if(isServerRunning){
+
+<span>Yes, the server is running</span>
+} @else {
+<span>No, the server is not running</span>
+}
+
+<br>
+
+@for( user of user; track user.id){
+<p>{{ user.name}}</p>
+}
+
+<br>
+
+<div [contentEditable]="isEditable"></div>
+
+<br>
+
+<section (mouseover)="onMouseOver()">
+    There's a secret message for you, hover to reveal 👀
+    {{ message }}
+</section>
+
+<br>
+
+<section><app-user name="NicoJung" /></section>
+
+<br>
+
+<app-child (addItemEvent)="addItem($event)" />
+<p>🐢 all the way down {{ items.length }}</p>
+
+
+<br>
+
+@defer (on viewport){
+<div>
+    <h1>How I feel about Angular</h1>
+    <app-comments />
+</div>
+}@placeholder {
+<p>Future comments</p>
+}@loading (minimum 2s){
+<p>Loading comments...</p>
+}
+<br>
+
+<app-image></app-image>
+
+<br>
+
+<app-forms></app-forms>
+
+<br>
+
+<p>Car Listing: {{ display }}</p>
+
+<br>
+
+<p> {{ username | lowercase }}</p>
+
+<br>
+
+<ul>
+    <li>Number with "decimal" {{ num | number:"3.2-2" }}</li>
+    <li>Date with "date" {{ birthday | date: 'medium' }}</li>
+    <li>Currency with "currency" {{ cost | currency }}</li>
+</ul>
+
+<br>
+
+<p>Reverse Machine: {{ word | reversePipe}}</p>
